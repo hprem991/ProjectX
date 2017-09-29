@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.ProjectX.Dao.Employee" table="Users">  
+	<id name = "user_id" type = "java.lang.Integer">
+		<column name = "user_id" />
+		<generator class="identity"/>
+	</id>
+    <property name="password" type = "string" not-null = "true">
+    	<column  name = "password" length = "10"/>
+    </property>  
+    <one-to-one name="Employee" class="com.ProjectX.Dao.Employee"
+			cascade="all"></one-to-one>
+  </class>               
+ </hibernate-mapping> 
+ 
+ 
+<!--  <?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+Generated 25 April 2011 7:52:33 PM by Hibernate Tools 3.4.0.CR1
+<hibernate-mapping>
+	<class name="com.mkyong.stock.Stock" table="stock" catalog="mkyongdb">
+		<id name="stockId" type="java.lang.Integer">
+			<column name="STOCK_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="stockCode" type="string">
+			<column name="STOCK_CODE" length="10" not-null="true" unique="true" />
+		</property>
+		<property name="stockName" type="string">
+			<column name="STOCK_NAME" length="20" not-null="true" unique="true" />
+		</property>
+		<one-to-one name="stockDetail" class="com.mkyong.stock.StockDetail"
+			cascade="save-update"></one-to-one>
+	</class>
+</hibernate-mapping> -->
