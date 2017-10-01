@@ -22,8 +22,8 @@ public static void main(String[] args) {
     Transaction t=session.beginTransaction();  
           
     Employee e1=new Employee();  
-    e1.setUser_id(1002);
-    e1.setPassword("Checking Password");
+   // e1.setUser_id(1002);
+    e1.setPassword("Prem Krishna Chettri");
 //    e1.setId(115);  
 //    e1.setFirstName("sonoo");  
 //    e1.setLastName("jaiswal");  

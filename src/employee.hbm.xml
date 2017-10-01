@@ -4,7 +4,7 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
   
  <hibernate-mapping>  
-  <class name="com.ProjectX.Dao.Employee" table="Users">  
+  <class name="com.ProjectX.Dao.Employee" table="Test">  
 	<id name = "user_id" type = "java.lang.Integer">
 		<column name = "user_id" />
 		<generator class="identity"/>
@@ -12,8 +12,6 @@
     <property name="password" type = "string" not-null = "true">
     	<column  name = "password" length = "10"/>
     </property>  
-    <one-to-one name="Employee" class="com.ProjectX.Dao.Employee"
-			cascade="all"></one-to-one>
   </class>               
  </hibernate-mapping> 
  

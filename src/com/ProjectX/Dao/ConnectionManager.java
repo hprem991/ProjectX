@@ -63,10 +63,10 @@
 //
 //
 //
-//public class ConnectionManager {
-//	private Connection
-//	
-//	ConnectionManager(String admin, String password){
-//		
-//	}
-//}
+public class ConnectionManager {
+	//private Connection
+	
+	ConnectionManager(String admin, String password){
+		
+	}
+}
