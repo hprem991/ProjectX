@@ -12,6 +12,7 @@ public class WorkerThread implements Runnable{
 	private String queryString;
 	private ConnectionManager connectionManager;
 	private Query queryType;
+	private int threadNumber;
 	
 	public static enum Query { 
 		REGISTER,
@@ -20,6 +21,8 @@ public class WorkerThread implements Runnable{
 		DELETE,
 		UPDATE 
 	};
+	
+	public WorkerThread(){}
 	
 	/********************************************************
 	 * 
@@ -44,6 +47,26 @@ public class WorkerThread implements Runnable{
 	
 	/********************************************************
 	 * 
+	 * METHOD NAME : WorkerThread
+	 * INPUT 	   : FileProcessor object, Results Object  and 
+	 * 				 IsPrime Object
+	 * RETURNS	   : CreateWorkers object
+	 * PURPOSE     : Creation of WorkerThread object and setting 
+	 * 				its member variables
+	 *
+	 ********************************************************/
+	
+	public WorkerThread(int threadCount, String queryStringIn, Query queryTypeIn){
+		threadNumber = threadCount;
+		queryString = queryStringIn;
+		queryType = queryTypeIn;
+		Logger.writeMessage(" Worker Thread Created ", 
+				DebugLevel.CONSTRUCTOR);
+	}
+	
+	
+	/********************************************************
+	 * 
 	 * METHOD NAME : run
 	 * INPUT 	   : void
 	 * RETURNS	   : void
@@ -56,13 +79,14 @@ public class WorkerThread implements Runnable{
 							  DebugLevel.THREAD);
 		String line = null;
 		try {
-			//Here user Connectionmanager to invoke DAO
+			//Call BusinessLogic Layer here not ConnectionManager, Business Logic should call Connection Manager internally
+			//Here user Connection manager to invoke DAO
 			switch(queryType){
-				case 0: connectionManager.Register(queryString); break;
-				case 1: connectionManager.Login(queryString); break;
-				case 2: connectionManager.Search(queryString); break;
-				case 3: connectionManager.Delete(queryString); break;
-				case 4: connectionManager.Update(queryString); break;
+				case REGISTER: connectionManager.Register(queryString); break;
+				case LOGIN: connectionManager.Login(queryString); break;
+				case SEARCH: connectionManager.Search(queryString); break;
+				case DELETE: connectionManager.Delete(queryString); break;
+				case UPDATE: connectionManager.Update(queryString); break;
 				default: break;
 			}
 		} catch (Exception e){

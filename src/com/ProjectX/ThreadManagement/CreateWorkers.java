@@ -25,6 +25,7 @@ public class CreateWorkers  {
 	 *
 	 ********************************************************/
 	
+	
 	public CreateWorkers(FileProcessor procIn,
 						 Results resIn, 
 						 IsPrime primeIn){		
@@ -35,6 +36,10 @@ public class CreateWorkers  {
 							DebugLevel.CONSTRUCTOR);
 	}
 
+	public CreateWorkers(int NUMBER_OF_THREADS){		
+			Logger.writeMessage(" Created Thread Constructed ", 
+				DebugLevel.CONSTRUCTOR);
+		}
 
 	/********************************************************
 	 * 

@@ -1,7 +1,8 @@
-//package com.ProjectX.Dao;
-//import java.util.*;
-//import java.lang.*;
-//
+package com.ProjectX.Dao;
+import java.util.*;
+import java.lang.*;
+import com.ProjectX.Dao.Object.ObjectInterface;
+
 //// Get the datastax driver cluser as it is more efficient using binary 
 //import com.datastax.driver.core.Cluster;
 //import com.datastax.driver.core.Host;
@@ -65,8 +66,21 @@
 //
 public class ConnectionManager {
 	//private Connection
+	public ConnectionManager(){
+		
+	}
+	
+	public String getSomeValue(String inputValue){
+		return "I gotchu Man ->"+inputValue;
+	}
 	
 	ConnectionManager(String admin, String password){
 		
+	}
+	
+	ArrayList<ObjectInterface> getObjectWithinRange(double maxLatitute, double maxLongitute, double minLatitute, double minLongitute){
+		//TODO : Create hibernate connection and query objects
+		
+		return null;
 	}
 }
