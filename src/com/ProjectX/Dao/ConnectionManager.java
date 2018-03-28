@@ -78,7 +78,7 @@ public class ConnectionManager {
 		
 	}
 	
-	ArrayList<ObjectInterface> getObjectWithinRange(double maxLatitute, double maxLongitute, double minLatitute, double minLongitute){
+	public ArrayList<ObjectInterface> getObjectWithinRange(double maxLatitute, double maxLongitute, double minLatitute, double minLongitute){
 		//TODO : Create hibernate connection and query objects
 		
 		return null;
