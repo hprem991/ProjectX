@@ -52,7 +52,7 @@ public class Login {
 			
 		} else {
 			jsonObject.put(welcomeString, "Oh!!! Authentication Failed!!!");
-			
+		
 		}
 		
 		String result = "@Produces(\"application/json\") Output:" + jsonObject;		
