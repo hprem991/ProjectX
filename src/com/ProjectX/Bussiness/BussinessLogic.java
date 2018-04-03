@@ -1,4 +1,5 @@
-package com.ProjectX.BussinessLogic;
+package com.ProjectX.Bussiness;
+
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
@@ -46,6 +47,22 @@ public class BussinessLogic implements BusinessLogicInterface, Callable {
 //		double minLongitute = aLongitute - aRadius;
 //		return connManager.getObjectWithinRange(maxLatitute, maxLongitute, minLatitute, minLongitute);
 //	}
+	
+	public ArrayList<String> searchArea(String aInput){
+		
+		// You Should get this aInput as a json string, use JSon parser to implement parsing and do the logical implementation
+		
+		double latitute;
+		double longitute;
+		double radius;
+		return connManager.getObjectWithinRange(latitute, longitute, radius);
+		
+		
+//		ArrayList<String> res = new ArrayList<String>();
+//		for(int i = 0; i< 50; i++)
+//			res.add(aInput);
+//		return res;
+	}
 
 	@Override
 	public boolean Register(String aString) {

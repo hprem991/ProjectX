@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.ProjectX.Dao.Location" table="Test">  
+	<id name = "location_id" type = "java.lang.double">
+		<column name = "location_id" />
+		<generator class="identity"/>
+	</id>
+    <property name="longitute" type = "double" not-null = "true">
+    	<column  name = "longitute" length = "10"/>
+    </property> 
+     <property name="latitute" type = "double" not-null = "true">
+    	<column  name = "latitute" length = "10"/>
+    </property> 
+     <property name="radius" type = "double" not-null = "true">
+    	<column  name = "radius" length = "10"/>
+    </property>  
+  </class>               
+ </hibernate-mapping> 
+ 

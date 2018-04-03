@@ -1,4 +1,4 @@
-package com.ProjectX.BussinessLogic;
+package com.ProjectX.Bussiness;
 
 import java.lang.*;
 import java.util.*;

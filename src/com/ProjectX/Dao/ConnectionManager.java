@@ -2,7 +2,7 @@ package com.ProjectX.Dao;
 import java.util.*;
 import java.lang.*;
 import com.ProjectX.Dao.*;
-//import com.ProjectX.Dao.Object.ObjectInterface;
+import com.ProjectX.Dao.Object.ObjectInterface;
 
 
 //// Get the datastax driver cluser as it is more efficient using binary 
@@ -99,6 +99,42 @@ public class ConnectionManager {
 //		
 //		return null;
 //	}
+	
+	//Change this return type to Object Interface once your are fixed with designing 
+	public ArrayList<Location> /*<ObjectInterface>*/ getObjectWithinRange(double latitute, double longitute, double radius){
+		//TODO : Create hibernate connection and query objects
+		
+		ArrayList<Location> result =  new ArrayList<Location>();
+		m_cfg = new Configuration();
+		m_cfg.configure("Location.cfg.xml"); // Create this as 
+		m_factory = m_cfg.buildSessionFactory();  
+		m_session = m_factory.openSession();  
+		
+		
+		m_transaction = m_session.beginTransaction();  
+		
+		String qry = "FROM Location";
+		
+		Query query = m_session.createQuery(qry);
+		
+		
+		List<Location> list = query.getResultList();
+		
+	    m_session.persist(query);
+	      
+	    m_transaction.commit();//transaction is committed  
+	    m_session.close();  
+	    
+		// Write a long to find if which all locational points falls within the given latitute and longittute
+		for(int i=0; i < list.size(); i++){
+			double x =  Math.abs(list.get(i).getM_latitute() - latitute);
+			double y =  Math.abs(list.get(i).getM_longitute() - longitute);
+			double dist = Math.sqrt(x * x - y * y);
+			if(dist <= radius)
+				result.add(list.get(i));
+		}
+		return result;
+	}
 	
 	public String getLogin(String a_UserName, String a_Password){
 		

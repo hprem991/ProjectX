@@ -13,6 +13,7 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <mapping resource="employee.hbm.xml" />
+        <mapping resource="location.hbm.xml" />  <!--  Location XML  -->
        <!--  <mapping class ="packageName.className"/>  -->
     </session-factory>
 </hibernate-configuration>
